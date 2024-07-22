@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) Helio Chissini de Castro <heliocastro@gmail.com>
+from __future__ import annotations
+
 import logging
 import sys
 from typing import Any
@@ -117,6 +121,8 @@ class SW360Utils:
                     "password": self.password,
                 }
                 auth = (credentials["client_id"], credentials["client_secret"])
+                logging.debug(auth)
+                logging.debug(params)
                 response = requests.get(
                     f"{self.host}/authorization/oauth/token",
                     headers=self.headers,
